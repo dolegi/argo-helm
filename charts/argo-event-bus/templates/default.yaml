@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventBus
+metadata:
+  name: {{ include "event-bus.fullname" . }}-default
+  labels:
+  {{- include "event-bus.labels" . | nindent 4 }}
+spec:
+  nats:
+    native:
+      auth: token
+      replicas: 3
